@@ -36,3 +36,7 @@ that can scrape data from a dictionary or something related to make sets.
 ![wireframe-create](img/wireframe-create.png)
 
 ![wireframe-table](img/wireframe-table.png)
+
+
+## Sources Used
+https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties

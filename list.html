@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>View Sets</title>
+  <meta name="description" content="Based on the dead Google Sets.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <article id="listpage">
+            <p tabindex="0" class="bluebutton"><a href="index.html">Back</a></p>
+
+            <form id="filters">
+                <div title="Set Name" id="setname">
+                    <label>Set Name</label>
+                    <input type="text" placeholder="Colors">
+                </div>
+
+                <div title="Sort By" id="sortby">
+                    <label>Sort By</label>
+                    <select>
+                        <!-- todo... -->
+                    </select>
+                </div>
+
+                <div title="Sort Order" id="sortorder">
+                    <label>Descending?</label>
+                    <input type="checkbox">
+                </div>
+
+                <div title="Search Words" id="searchwords">
+                    <label>Search Words</label>
+                    <textarea rows="5" placeholder="Add words separated by commas, Ex: Red, green, BLUE, Yellow"></textarea>
+                </div>
+            </form>
+
+            <button id="searchthelist" class="greenbutton">Search</button>
+        </article>
+
+        <article>
+            <table id="data">
+                <!-- nothing... -->
+            </table>
+        </article>
+    </main>
+</body>
+
+</html>
