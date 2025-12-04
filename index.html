@@ -33,7 +33,13 @@
     </article>
   </main>
 
-  <script type="module" src="js/main.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    window.onload = () => {
+      const searchButton = document.getElementById('search');
+      searchButton.addEventListener('click', searchAllSets);
+    }
+  </script>
 </body>
 
 </html>

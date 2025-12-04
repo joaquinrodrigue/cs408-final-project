@@ -39,4 +39,6 @@ that can scrape data from a dictionary or something related to make sets.
 
 
 ## Sources Used
-https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties
+https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties - for the CSS variables
+
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API - for using the Fetch API instead of XML requests
