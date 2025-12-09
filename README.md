@@ -44,3 +44,9 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Usin
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API - for using the Fetch API instead of XML requests
 
 https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event - for various buttons on the page
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter - Filtering server data
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String 
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child - for styles on the list table

@@ -24,8 +24,8 @@
 
     <article class="mainpage">
       <form class="search">
-        <label>Begin typing to gather some words</label>
-        <input type="text" placeholder="Red, Blue, Green...">
+        <label for="searchwords">Begin typing to gather some words</label>
+        <input id="searchwords" name="searchwords" type="text" placeholder="Red, Blue, Green...">
         <button id="search">Go!</button>
       </form>
 
@@ -49,7 +49,11 @@
         }
 
         words.innerHTML = "";
-        json.forEach(element => {
+        let userInput = document.getElementById('searchwords').value;
+        let filteredJson = filterData(json, { words: userInput });
+        console.log(filteredJson);
+        
+        filteredJson.forEach(element => {
           let wordsSeparated = element.words.split(", ");
           wordsSeparated.forEach(word => {
             words.innerHTML += word + "<br>";

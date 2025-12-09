@@ -19,11 +19,11 @@
         </article>
         <article>
             <form id="createform">
-                <label for="setname">Set Name</label>
-                <input id="setname" name="setname" type="text" placeholder="Placeholder">
+                <label for="newsetname">Set Name</label>
+                <input id="newsetname" name="newsetname" type="text" placeholder="Placeholder">
             
-                <label for="setwords">Add words to your set</label>
-                <textarea id="setwords" name="setwords" rows="5" placeholder="Add words separated by commas, Ex: Red, green, YELLOW, Blue"></textarea>
+                <label for="newsetwords">Add words to your set</label>
+                <textarea id="newsetwords" name="newsetwords" rows="5" placeholder="Add words separated by commas, Ex: Red, green, YELLOW, Blue"></textarea>
             </form>
         </article>
     </main>
@@ -31,7 +31,31 @@
     <script src="js/main.js"></script>
     <script>
         window.onload = () => {
-            
+            const createButton = document.getElementById('createaset');
+
+            createButton.addEventListener('click', async (event) => {
+                event.preventDefault();
+
+                let setName = document.getElementById('newsetname').value;
+                let setWords = document.getElementById('newsetwords').value;
+
+                if (!setName) {
+                    alert("Please enter a name for the set!");
+                    return;
+                }
+                if (!setWords) {
+                    alert("Please enter at least one word for the set!");
+                    return;
+                }
+
+                const json = await createSet(setName, setWords);
+                if (!json) {
+                    alert("Something went wrong, please try again later!");
+                    return;
+                }
+
+                window.location = 'index.html';
+            });
         }
     </script>
 </body>

@@ -102,6 +102,20 @@ article.mainpage {
   align-items: center;
 }
 
+#data {
+  margin: auto;
+  width: 75%;
+  background-color: var(--greenhover);
+}
+
+th {
+  background-color: var(--greencolor);
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
 /* Create page */
 #createpage article {
   display: flex;

@@ -22,7 +22,7 @@
                 </div>
 
                 <div title="Sort By" id="sortby">
-                    <label>Sort By</label>
+                    <label for="sort">Sort By</label>
                     <select id="sort">
                         <option value="name">Name</option>
                         <option value="words">Word Number</option>
@@ -31,12 +31,12 @@
 
                 <div title="Sort Order" id="sortorder">
                     <label for="sortorder">Descending?</label>
-                    <input id="sortorder" name="sortorder" type="checkbox">
+                    <input id="sortorder" type="checkbox">
                 </div>
 
                 <div title="Search Words" id="searchwords">
                     <label for="searchwords">Search Words</label>
-                    <textarea id="searchwords" name="searchwords" rows="5" placeholder="Add words separated by commas, Ex: Red, green, BLUE, Yellow"></textarea>
+                    <textarea id="searchwords" rows="5" placeholder="Add words separated by commas, Ex: Red, green, BLUE, Yellow"></textarea>
                 </div>
             </form>
 
@@ -52,48 +52,56 @@
 
     <script src="js/main.js"></script>
     <script>
+        // Delete an item
+        const deleteTheThing = async (event) => {
+            console.log(event);
+            let id = event.target.id;
+            console.log(id);
+            const json = await deleteSet(id);
+
+            if (json) {
+                window.location = 'list.html';
+            }
+        }
+        const dataTable = document.getElementById('data');
+
+        // Search and show the table
+        const search = async (event) => {
+            if (event) event.preventDefault();
+            const json = await searchAllSets();
+
+            if (!json) {
+                alert("Something went wrong, please try again later!");
+                return;
+            }
+
+            let theTable = 
+            `<tbody>
+                <tr>
+                    <th>Set Name</th>
+                    <th>Set Words</th>
+                    <th>Actions</th>
+                </tr>`;
+            json.forEach(element => {
+                theTable += 
+                `<tr>
+                    <td>${element.name}</td>
+                    <td>${element.words}</td>
+                    <td><button id=${element.id} class="deletebutton">Delete</button></td>
+                </tr>`;
+            });
+            theTable += `</tbody>`;
+            dataTable.innerHTML = theTable;
+
+            let deleteButtons = document.getElementsByClassName("deletebutton");
+            for (let i = 0; i < deleteButtons.length; i++) {
+                deleteButtons.item(i).addEventListener('click', deleteTheThing);
+            }
+        }
+
+        // Add listeners and search on load
         window.onload = () => {
-            const dataTable = document.getElementById('data');
             const searchButton = document.getElementById('searchthelist');
-
-            // Delete an item
-            const deleteItem = async (event) => {
-                let id = event.target.id;
-                const json = await deleteItem();
-
-                if (json) {
-                    window.location = '#';
-                }
-            }
-
-            // Search and show the table
-            const search = async (event) => {
-                if (event) event.preventDefault();
-                const json = await searchAllSets();
-
-                if (!json) {
-                    alert("Something went wrong, please try again later!");
-                    return;
-                }
-
-                let theTable = 
-                `<tbody>
-                    <tr>
-                        <th>Set Name</th>
-                        <th>Set Words</th>
-                        <th>Actions</th>
-                    </tr>`;
-                json.forEach(element => {
-                    theTable += 
-                    `<tr>
-                        <td>${element.name}</td>
-                        <td>${element.words}</td>
-                        <td><button id=${element.id} onclick="deleteItem">Delete</button></td>
-                    </tr>`;
-                });
-                theTable += `</tbody>`;
-                dataTable.innerHTML = theTable;
-            }
 
             searchButton.addEventListener('click', search);
             search();
