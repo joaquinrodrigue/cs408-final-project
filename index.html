@@ -29,7 +29,7 @@
         <button id="search">Go!</button>
       </form>
 
-      <p>We'll put related words here.</p>
+      <p id="words">We'll put related words here.</p>
     </article>
   </main>
 
@@ -37,7 +37,25 @@
   <script>
     window.onload = () => {
       const searchButton = document.getElementById('search');
-      searchButton.addEventListener('click', searchAllSets);
+
+      searchButton.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const json = await searchAllSets();
+        
+        let words = document.getElementById('words');
+        if (!json) {
+          words.innerHTML = "Something went wrong, please try again later!";
+          return;
+        }
+
+        words.innerHTML = "";
+        json.forEach(element => {
+          let wordsSeparated = element.words.split(", ");
+          wordsSeparated.forEach(word => {
+            words.innerHTML += word + "<br>";
+          })
+        });
+      });
     }
   </script>
 </body>

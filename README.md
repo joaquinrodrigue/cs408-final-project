@@ -42,3 +42,5 @@ that can scrape data from a dictionary or something related to make sets.
 https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties - for the CSS variables
 
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API - for using the Fetch API instead of XML requests
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event - for various buttons on the page
