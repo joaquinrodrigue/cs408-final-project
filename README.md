@@ -50,3 +50,5 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String 
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child - for styles on the list table
+
+https://qunitjs.com/api/assert/ - because I really wasn't sure how assertions work

@@ -35,8 +35,8 @@
                 </div>
 
                 <div title="Search Words" id="searchwords">
-                    <label for="searchwords">Search Words</label>
-                    <textarea id="searchwords" rows="5" placeholder="Add words separated by commas, Ex: Red, green, BLUE, Yellow"></textarea>
+                    <label for="searchwordslist">Search Words</label>
+                    <textarea id="searchwordslist" rows="5" placeholder="Add words separated by commas, Ex: Red, green, BLUE, Yellow"></textarea>
                 </div>
             </form>
 
@@ -68,13 +68,25 @@
         // Search and show the table
         const search = async (event) => {
             if (event) event.preventDefault();
-            const json = await searchAllSets();
+            let json = await searchAllSets();
 
             if (!json) {
                 alert("Something went wrong, please try again later!");
                 return;
             }
 
+            let filters = {};
+            let nameField = document.getElementById('searchname').value;
+            if (nameField) filters.name = nameField;
+            let wordsField = document.getElementById('searchwordslist').value;
+            if (wordsField) filters.words = wordsField;
+            let sortField = document.getElementById('sort').value;
+            if (sortField) filters.sort = sortField;
+            let orderField = document.getElementById('sortorder').checked;
+            filters.descending = (!!orderField); // this feels cursed
+            //console.log(filters);
+            json = filterData(json, filters);
+            //console.log(json);
             let theTable = 
             `<tbody>
                 <tr>

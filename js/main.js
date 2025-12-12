@@ -12,7 +12,7 @@ const searchAllSets = async () => {
         return;
     }
     const json = await response.json();
-    console.log(json);
+    console.log(typeof json);
     return json;
 }
 
